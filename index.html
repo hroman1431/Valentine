@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Himani ❤️</title>
+
+<style>
+body {
+  text-align: center;
+  font-family: Arial;
+  margin: 0;
+  padding-top: 100px;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #b30059;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+
+#noBtn {
+  position: absolute;
+}
+
+#finalPage {
+  display: none;
+}
+
+.petal {
+  position: absolute;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.memories {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #880e4f;
+  animation: fade 3s infinite alternate;
+}
+
+@keyframes fade {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="mainPage">
+  <h1>Himani, will you be my Valentine? 💖</h1>
+
+  <button onclick="yesClicked()">Yes</button>
+  <button id="noBtn" onmouseover="moveNo()">No</button>
+</div>
+
+<div id="finalPage">
+  <h1>💖 Satyam & Himani 💖</h1>
+
+  <h2>I love you my baby 😘💋</h2>
+  <h3>Just be with me till eternity.</h3>
+
+  <div class="memories">
+    Forever Together 💞<br><br>
+    Our laughs, our talks, our moments...<br>
+    Every memory with you is special 💫
+  </div>
+</div>
+
+<script>
+
+function yesClicked() {
+  document.getElementById("mainPage").style.display = "none";
+  document.getElementById("finalPage").style.display = "block";
+}
+
+function moveNo() {
+  var x = Math.random() * (window.innerWidth - 120);
+  var y = Math.random() * (window.innerHeight - 60);
+
+  document.getElementById("noBtn").style.left = x + "px";
+  document.getElementById("noBtn").style.top = y + "px";
+}
+
+function createPetals() {
+  const petal = document.createElement("div");
+  petal.classList.add("petal");
+  petal.innerHTML = "🌹";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = Math.random() * 3 + 4 + "s";
+  document.body.appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 6000);
+}
+
+setInterval(createPetals, 400);
+
+</script>
+
+</body>
+</html>
